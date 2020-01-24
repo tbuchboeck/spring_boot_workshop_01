@@ -1,0 +1,13 @@
+version: '2'
+services:
+  db:
+    image: 'postgres:11.2'
+    container_name: 'demo_postgres'
+    ports:
+      - '127.0.0.1:5432:5432'
+    volumes:
+      - 'pgdata:/var/lib/postgresql/data/'
+      - './docker/psql-init-scripts/:/docker-entrypoint-initdb.d'
+
+volumes:
+  pgdata:
